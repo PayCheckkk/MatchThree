@@ -72,8 +72,13 @@ public class Board : MonoBehaviour
         var selectionsTilesDifferenceX = firstSelectionTileX - secondSelectionTileX;
         var selectionsTilesDifferenceY = firstSelectionTileY - secondSelectionTileY;
 
-        if (selectionsTilesDifferenceX > 1 || selectionsTilesDifferenceY > 1)
+        if (Mathf.Abs(selectionsTilesDifferenceX) + Mathf.Abs(selectionsTilesDifferenceY) > 1)
+        {
+            await Swap(_selection[0], _selection[1]);
+            await Swap(_selection[0], _selection[1]);
+            _selection.Clear();
             return;
+        }
 
         await Swap(_selection[0], _selection[1]);
 
