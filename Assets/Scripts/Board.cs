@@ -14,7 +14,9 @@ public class Board : MonoBehaviour
 
     private const float TweenDuration = 0.2f;
 
-    private int _matchesCount = 2;
+    private const int SelectionsToTriggerSwap = 2;
+
+    private const int MatchesToTriggerPop = 2;
 
     public int Width => _width;
 
@@ -60,17 +62,17 @@ public class Board : MonoBehaviour
         if (_selection.Contains(tile) == false)
             _selection.Add(tile);
 
-        if (_selection.Count < _matchesCount)
+        if (_selection.Count < SelectionsToTriggerSwap)
             return;
 
         var firstSelectionTileX = _selection[0].X;
         var firstSelectionTileY = _selection[0].Y;
         var secondSelectionTileX = _selection[1].X;
         var secondSelectionTileY = _selection[1].Y;
-        var selectionsTilesRaznicaX = firstSelectionTileX - secondSelectionTileX;
-        var selectionsTilesRaznicaY = firstSelectionTileY - secondSelectionTileY;
+        var selectionsTilesDifferenceX = firstSelectionTileX - secondSelectionTileX;
+        var selectionsTilesDifferenceY = firstSelectionTileY - secondSelectionTileY;
 
-        if (selectionsTilesRaznicaX > 1 || selectionsTilesRaznicaY > 1)
+        if (selectionsTilesDifferenceX > 1 || selectionsTilesDifferenceY > 1)
             return;
 
         await Swap(_selection[0], _selection[1]);
@@ -120,7 +122,7 @@ public class Board : MonoBehaviour
         {
             for (var x = 0; x < Width; x++)
             {
-                if (Tiles[x, y].GetConnectedTiles().Skip(1).Count() >= _matchesCount)
+                if (Tiles[x, y].GetConnectedTiles().Skip(1).Count() >= MatchesToTriggerPop)
                     return true;
             }
         }
@@ -138,7 +140,7 @@ public class Board : MonoBehaviour
 
                 var connectedTiles = tile.GetConnectedTiles();
 
-                if (connectedTiles.Skip(1).Count() < _matchesCount)
+                if (connectedTiles.Skip(1).Count() < MatchesToTriggerPop)
                     continue;
 
                 var deflateSequence = DOTween.Sequence();
