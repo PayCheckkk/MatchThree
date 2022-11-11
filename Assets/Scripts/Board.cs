@@ -65,6 +65,8 @@ public class Board : MonoBehaviour
         if (_selection.Count < SelectionsToTriggerSwap)
             return;
 
+        var random = new System.Random();
+
         var firstSelectionTileX = _selection[0].X;
         var firstSelectionTileY = _selection[0].Y;
         var secondSelectionTileX = _selection[1].X;
