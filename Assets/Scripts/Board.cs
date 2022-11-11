@@ -55,6 +55,9 @@ public class Board : MonoBehaviour
                 Tiles[tileIterator, rowIterator] = tile;
             }
         }
+
+        while (CanPop())
+            Pop(false);
     }
 
     public async void Select(Tile tile)
@@ -86,7 +89,7 @@ public class Board : MonoBehaviour
 
         if (CanPop())
         {
-            Pop();
+            Pop(true);
         }
         else
         {
@@ -137,7 +140,7 @@ public class Board : MonoBehaviour
         return false;
     }
 
-    private async void Pop()
+    private async void Pop(bool animate = true)
     {
         for (var y = 0; y < Height; y++)
         {
@@ -150,14 +153,17 @@ public class Board : MonoBehaviour
                 if (connectedTiles.Skip(1).Count() < MatchesToTriggerPop)
                     continue;
 
-                var deflateSequence = DOTween.Sequence();
+                if (animate == true)
+                {
+                    var deflateSequence = DOTween.Sequence();
 
-                foreach (var connectedTile in connectedTiles)
-                    deflateSequence.Join(connectedTile.Icon.transform.DOScale(Vector3.zero, TweenDuration));
+                    foreach (var connectedTile in connectedTiles)
+                        deflateSequence.Join(connectedTile.Icon.transform.DOScale(Vector3.zero, TweenDuration));
 
-                await deflateSequence.Play().AsyncWaitForCompletion();
+                    await deflateSequence.Play().AsyncWaitForCompletion();
 
-                ScoreCounter.Instance.Score += tile.Item.Value * connectedTiles.Count;
+                    ScoreCounter.Instance.Score += tile.Item.Value * connectedTiles.Count;
+                }
 
                 var inflateSequence = DOTween.Sequence();
 
@@ -165,10 +171,12 @@ public class Board : MonoBehaviour
                 {
                     connectedTile.Item = ItemDatabase.Items[Random.Range(0, ItemDatabase.Items.Length)];
 
-                    inflateSequence.Join(connectedTile.Icon.transform.DOScale(Vector3.one, TweenDuration));
+                    if (animate == true)
+                        inflateSequence.Join(connectedTile.Icon.transform.DOScale(Vector3.one, TweenDuration));
                 }
 
-                await inflateSequence.Play().AsyncWaitForCompletion();
+                if (animate == true)
+                    await inflateSequence.Play().AsyncWaitForCompletion();
 
                 x = 0;
                 y = 0;
