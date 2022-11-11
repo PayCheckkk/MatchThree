@@ -14,7 +14,9 @@ public class Board : MonoBehaviour
 
     private const float TweenDuration = 0.2f;
 
-    private int _matchesCount = 2;
+    private const int SelectionsToTriggerSwap = 2;
+
+    private const int MatchesToTriggerPop = 2;
 
     public int Width => _width;
 
@@ -60,10 +62,25 @@ public class Board : MonoBehaviour
         if (_selection.Contains(tile) == false)
             _selection.Add(tile);
 
-        if (_selection.Count < _matchesCount)
+        if (_selection.Count < SelectionsToTriggerSwap)
             return;
 
-        Debug.Log($"Selected tiles at({_selection[0].X}, {_selection[0].Y}) and ({_selection[1].X}, {_selection[1].Y})");
+        var random = new System.Random();
+
+        var firstSelectionTileX = _selection[0].X;
+        var firstSelectionTileY = _selection[0].Y;
+        var secondSelectionTileX = _selection[1].X;
+        var secondSelectionTileY = _selection[1].Y;
+        var selectionsTilesDifferenceX = firstSelectionTileX - secondSelectionTileX;
+        var selectionsTilesDifferenceY = firstSelectionTileY - secondSelectionTileY;
+
+        if (Mathf.Abs(selectionsTilesDifferenceX) + Mathf.Abs(selectionsTilesDifferenceY) > 1)
+        {
+            await Swap(_selection[0], _selection[1]);
+            await Swap(_selection[0], _selection[1]);
+            _selection.Clear();
+            return;
+        }
 
         await Swap(_selection[0], _selection[1]);
 
@@ -112,7 +129,7 @@ public class Board : MonoBehaviour
         {
             for (var x = 0; x < Width; x++)
             {
-                if (Tiles[x, y].GetConnectedTiles().Skip(1).Count() >= _matchesCount)
+                if (Tiles[x, y].GetConnectedTiles().Skip(1).Count() >= MatchesToTriggerPop)
                     return true;
             }
         }
@@ -130,7 +147,7 @@ public class Board : MonoBehaviour
 
                 var connectedTiles = tile.GetConnectedTiles();
 
-                if (connectedTiles.Skip(1).Count() < _matchesCount)
+                if (connectedTiles.Skip(1).Count() < MatchesToTriggerPop)
                     continue;
 
                 var deflateSequence = DOTween.Sequence();
