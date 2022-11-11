@@ -63,7 +63,15 @@ public class Board : MonoBehaviour
         if (_selection.Count < _matchesCount)
             return;
 
-        Debug.Log($"Selected tiles at({_selection[0].X}, {_selection[0].Y}) and ({_selection[1].X}, {_selection[1].Y})");
+        var firstSelectionTileX = _selection[0].X;
+        var firstSelectionTileY = _selection[0].Y;
+        var secondSelectionTileX = _selection[1].X;
+        var secondSelectionTileY = _selection[1].Y;
+        var selectionsTilesRaznicaX = firstSelectionTileX - secondSelectionTileX;
+        var selectionsTilesRaznicaY = firstSelectionTileY - secondSelectionTileY;
+
+        if (selectionsTilesRaznicaX > 1 || selectionsTilesRaznicaY > 1)
+            return;
 
         await Swap(_selection[0], _selection[1]);
 
