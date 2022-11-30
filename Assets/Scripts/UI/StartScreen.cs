@@ -18,15 +18,15 @@ public class StartScreen : MonoBehaviour
 
     private void OnEnable()
     {
-        _startButton.onClick.AddListener(OnButtonClick);
+        _startButton.onClick.AddListener(OnStartButtonClick);
     }
 
     private void OnDisable()
     {
-        _startButton.onClick.RemoveListener(OnButtonClick);
+        _startButton.onClick.RemoveListener(OnStartButtonClick);
     }
 
-    private void OnButtonClick()
+    private void OnStartButtonClick()
     {
         _startScreen.alpha = 0;
         _startScreen.blocksRaycasts = false;

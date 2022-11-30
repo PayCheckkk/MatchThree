@@ -12,7 +12,7 @@ using UnityEngine.UI;
 public class Board : MonoBehaviour
 {
     [SerializeField] private Row[] _rows;
-    [SerializeField] private CanvasGroup _endScreen;
+    [SerializeField] private GameObject _endScreen;
 
     private const float TweenDuration = 0.2f;
 
@@ -41,7 +41,7 @@ public class Board : MonoBehaviour
 
     private void Start()
     {
-        _endScreen.alpha = 0;
+        _endScreen.SetActive(false);
         Tiles = new Tile[_rows.Max(row => row.Tiles.Length), _rows.Length];
 
         for (var rowIterator = 0; rowIterator < _height; rowIterator++)
@@ -186,7 +186,7 @@ public class Board : MonoBehaviour
 
                 if (ScoreCounter.Instance.Score >= Target.Instance.TargetScore)
                 {
-                    _endScreen.alpha = 1;
+                    _endScreen.SetActive(true);
                 }
             }
         }
