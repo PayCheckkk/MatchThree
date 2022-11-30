@@ -7,7 +7,7 @@ public class StartScreen : MonoBehaviour
 {
     [SerializeField] private CanvasGroup _startScreen;
     [SerializeField] private CanvasGroup _gameScreen;
-    [SerializeField] private Button _button;
+    [SerializeField] private Button _startButton;
 
     private void Start()
     {
@@ -18,12 +18,12 @@ public class StartScreen : MonoBehaviour
 
     private void OnEnable()
     {
-        _button.onClick.AddListener(OnButtonClick);
+        _startButton.onClick.AddListener(OnButtonClick);
     }
 
     private void OnDisable()
     {
-        _button.onClick.RemoveListener(OnButtonClick);
+        _startButton.onClick.RemoveListener(OnButtonClick);
     }
 
     private void OnButtonClick()
@@ -31,6 +31,6 @@ public class StartScreen : MonoBehaviour
         _startScreen.alpha = 0;
         _startScreen.blocksRaycasts = false;
         _gameScreen.alpha = 1;
-        _button.interactable = false;
+        _startButton.interactable = false;
     }
 }

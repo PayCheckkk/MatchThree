@@ -6,11 +6,13 @@ using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Board : MonoBehaviour
 {
     [SerializeField] private Row[] _rows;
+    [SerializeField] private CanvasGroup _endScreen;
 
     private const float TweenDuration = 0.2f;
 
@@ -39,6 +41,7 @@ public class Board : MonoBehaviour
 
     private void Start()
     {
+        _endScreen.alpha = 0;
         Tiles = new Tile[_rows.Max(row => row.Tiles.Length), _rows.Length];
 
         for (var rowIterator = 0; rowIterator < _height; rowIterator++)
@@ -180,6 +183,11 @@ public class Board : MonoBehaviour
 
                 x = 0;
                 y = 0;
+
+                if (ScoreCounter.Instance.Score >= Target.Instance.TargetScore)
+                {
+                    _endScreen.alpha = 1;
+                }
             }
         }
     }
