@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _targetText;
+    [SerializeField] private TMP_Text _targetText;
 
     public static Target Instance { get; private set; }
 
@@ -16,5 +16,10 @@ public class Target : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        _targetText.text = $"Target: {LevelTwo.Instance.TargetCount} x";
     }
 }

@@ -12,7 +12,6 @@ using UnityEngine.UI;
 public class Board : MonoBehaviour
 {
     [SerializeField] private Row[] _rows;
-    [SerializeField] private GameObject _endScreen;
 
     private const float TweenDuration = 0.2f;
 
@@ -34,6 +33,8 @@ public class Board : MonoBehaviour
 
     public static Board Instance { get; private set; }
 
+    public event UnityAction<Sprite> Poped;
+
     private void Awake()
     {
         Instance = this;
@@ -41,7 +42,6 @@ public class Board : MonoBehaviour
 
     private void Start()
     {
-        _endScreen.SetActive(false);
         Tiles = new Tile[_rows.Max(row => row.Tiles.Length), _rows.Length];
 
         for (var rowIterator = 0; rowIterator < _height; rowIterator++)
@@ -165,6 +165,8 @@ public class Board : MonoBehaviour
 
                     await deflateSequence.Play().AsyncWaitForCompletion();
 
+                    Poped?.Invoke(tile.Icon.sprite);
+
                     ScoreCounter.Instance.Score += tile.Item.Value * connectedTiles.Count;
                 }
 
@@ -183,11 +185,6 @@ public class Board : MonoBehaviour
 
                 x = 0;
                 y = 0;
-
-                if (ScoreCounter.Instance.Score >= Target.Instance.TargetScore)
-                {
-                    _endScreen.SetActive(true);
-                }
             }
         }
     }
