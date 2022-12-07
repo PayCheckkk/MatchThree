@@ -165,6 +165,8 @@ public class Board : MonoBehaviour
 
                     await deflateSequence.Play().AsyncWaitForCompletion();
 
+                    Poped?.Invoke(tile.Icon.sprite);
+
                     ScoreCounter.Instance.Score += tile.Item.Value * connectedTiles.Count;
                 }
 
@@ -173,8 +175,6 @@ public class Board : MonoBehaviour
                 foreach (var connectedTile in connectedTiles)
                 {
                     connectedTile.Item = ItemDatabase.Items[Random.Range(0, ItemDatabase.Items.Length)];
-
-                    Poped?.Invoke(connectedTile.Icon.sprite);
 
                     if (animate == true)
                         inflateSequence.Join(connectedTile.Icon.transform.DOScale(Vector3.one, TweenDuration));

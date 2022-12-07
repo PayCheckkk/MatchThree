@@ -8,9 +8,11 @@ public class LevelTwo : MonoBehaviour
 {
     [SerializeField] private Sprite _targetSprite;
     [SerializeField] private GameObject _endScreen;
+    [SerializeField] private TMP_Text _currentCountText;
+    [SerializeField] private Board _board;
 
     private int _targetsCount = 12;
-    private int _currentCount;
+    private int _currentCount = 0;
 
     public static LevelTwo Instance { get; private set; }
 
@@ -28,14 +30,21 @@ public class LevelTwo : MonoBehaviour
         _endScreen.SetActive(false);
     }
 
+    private void Update()
+    {
+        _currentCountText.text = $"Poped: {_currentCount}";
+
+        FinishLevel();
+    }
+
     private void OnEnable()
     {
-        Board.Instance.Poped += CalculateTarget;
+        _board.Poped += CalculateTarget;
     }
 
     private void OnDisable()
     {
-        Board.Instance.Poped -= CalculateTarget;
+        _board.Poped -= CalculateTarget;
     }
 
     private void CalculateTarget(Sprite target)
