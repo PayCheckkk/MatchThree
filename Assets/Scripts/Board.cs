@@ -13,11 +13,13 @@ public class Board : MonoBehaviour
 {
     [SerializeField] private Row[] _rows;
 
-    private const float TweenDuration = 0.2f;
+    private const float TweenDuration = 0.12f;
 
     private const int SelectionsToTriggerSwap = 2;
 
     private const int MatchesToTriggerPop = 2;
+
+    private bool _isWorking = false;
 
     public int Width => _width;
 
@@ -65,13 +67,17 @@ public class Board : MonoBehaviour
 
     public async void Select(Tile tile)
     {
+        if (_isWorking == true)
+        {
+            _selection.Clear();
+            return;
+        }
+
         if (_selection.Contains(tile) == false)
             _selection.Add(tile);
 
         if (_selection.Count < SelectionsToTriggerSwap)
-            return;
-
-        var random = new System.Random();
+            return;        
 
         var firstSelectionTileX = _selection[0].X;
         var firstSelectionTileY = _selection[0].Y;
@@ -104,6 +110,8 @@ public class Board : MonoBehaviour
 
     public async Task Swap(Tile tile1, Tile tile2)
     {
+        _isWorking = true;
+
         var icon1 = tile1.Icon;
         var icon2 = tile2.Icon;
 
@@ -127,6 +135,8 @@ public class Board : MonoBehaviour
 
         tile1.Item = tile2.Item;
         tile2.Item = tile1Item;
+
+        _isWorking = false;
     }
 
     private bool CanPop()
@@ -145,6 +155,8 @@ public class Board : MonoBehaviour
 
     private async void Pop(bool animate = true)
     {
+        _isWorking = true;
+
         for (var y = 0; y < Height; y++)
         {
             for (var x = 0; x < Width; x++)
@@ -187,5 +199,7 @@ public class Board : MonoBehaviour
                 y = 0;
             }
         }
+
+        _isWorking = false;
     }
 }
