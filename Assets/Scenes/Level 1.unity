@@ -1020,7 +1020,6 @@ GameObject:
   - component: {fileID: 391404128}
   - component: {fileID: 391404131}
   - component: {fileID: 391404130}
-  - component: {fileID: 391404132}
   m_Layer: 5
   m_Name: Target
   m_TagString: Untagged
@@ -1068,7 +1067,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Target = 1000
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1145,19 +1144,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 391404127}
   m_CullTransparentMesh: 1
---- !u!114 &391404132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 391404127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6abbc56245d710447b6e23a89ab5aafc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetText: {fileID: 391404130}
 --- !u!1 &435825299
 GameObject:
   m_ObjectHideFlags: 0
@@ -3133,6 +3119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1317772448}
   - component: {fileID: 1317772449}
+  - component: {fileID: 1317772450}
   m_Layer: 5
   m_Name: GameScreen
   m_TagString: Untagged
@@ -3175,6 +3162,22 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1317772450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317772447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce66bb545dc7384eb1e7035d7542466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _endScreen: {fileID: 793044491}
+  _targetScoreText: {fileID: 391404130}
+  _currentScore: {fileID: 103639196}
+  _targetScore: 200
 --- !u!1 &1400574278
 GameObject:
   m_ObjectHideFlags: 0
@@ -4111,7 +4114,6 @@ MonoBehaviour:
   - {fileID: 269714098}
   - {fileID: 2010869596}
   - {fileID: 1171119835}
-  _endScreen: {fileID: 793044491}
 --- !u!114 &1830189582
 MonoBehaviour:
   m_ObjectHideFlags: 0

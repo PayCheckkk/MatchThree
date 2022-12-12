@@ -14,9 +14,7 @@ public class Board : MonoBehaviour
     [SerializeField] private Row[] _rows;
 
     private const float TweenDuration = 0.12f;
-
     private const int SelectionsToTriggerSwap = 2;
-
     private const int MatchesToTriggerPop = 2;
 
     private bool _isWorking = false;
@@ -24,6 +22,7 @@ public class Board : MonoBehaviour
     public int Width => _width;
 
     public int Height => _height;
+    public bool IsWorking => _isWorking;
 
     public Tile[,] Tiles { get; private set; }
 
