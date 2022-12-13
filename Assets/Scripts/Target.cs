@@ -6,12 +6,9 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     [SerializeField] private TMP_Text _targetText;
+    [SerializeField] private Levels _level;
 
     public static Target Instance { get; private set; }
-
-    private int _targetScore = 1000;
-
-    public int TargetScore => _targetScore;
 
     private void Awake()
     {
@@ -20,6 +17,6 @@ public class Target : MonoBehaviour
 
     private void Start()
     {
-        _targetText.text = $"Target: {LevelTwo.Instance.TargetCount} x";
+        _targetText.text = $"Target: {_level.TargetCount} x";
     }
 }

@@ -1159,6 +1159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetText: {fileID: 391404130}
+  _level: {fileID: 1317772450}
 --- !u!1 &435825299
 GameObject:
   m_ObjectHideFlags: 0
@@ -3407,6 +3408,7 @@ MonoBehaviour:
   _endScreen: {fileID: 793044491}
   _currentCountText: {fileID: 637329195}
   _board: {fileID: 1830189581}
+  _targetCount: 12
 --- !u!1 &1400574278
 GameObject:
   m_ObjectHideFlags: 0
