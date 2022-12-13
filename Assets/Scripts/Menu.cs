@@ -30,4 +30,9 @@ public class Menu : MonoBehaviour
         _startScreen.blocksRaycasts = false;
         _gameScreen.alpha = 1;
     }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene(1);
+    }
 }
