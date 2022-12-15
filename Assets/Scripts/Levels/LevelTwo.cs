@@ -49,5 +49,7 @@ public class LevelTwo : Levels
     protected override void FinishLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        PlayerPrefs.SetInt("LevelComplete", SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("LevelsMap");
     }
 }
