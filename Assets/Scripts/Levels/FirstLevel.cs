@@ -32,6 +32,6 @@ public class FirstLevel : MonoBehaviour
 
     private void FinishLevel()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
