@@ -608,7 +608,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startScreen: {fileID: 0}
-  _gameScreen: {fileID: 0}
+  _gameScreen: {fileID: 1317772449}
+  _menu: {fileID: 862097730}
 --- !u!1001 &343020972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4915,7 +4916,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 318048740}
         m_TargetAssemblyTypeName: Menu, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1

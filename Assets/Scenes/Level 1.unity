@@ -609,6 +609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startScreen: {fileID: 1738535424}
   _gameScreen: {fileID: 1317772449}
+  _menu: {fileID: 862097730}
 --- !u!1001 &343020972
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2479,7 +2480,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &862097731
 MonoBehaviour:
   m_ObjectHideFlags: 0
