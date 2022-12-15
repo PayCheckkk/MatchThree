@@ -7,6 +7,13 @@ public class Menu : MonoBehaviour
 {
     [SerializeField] private CanvasGroup _startScreen;
     [SerializeField] private CanvasGroup _gameScreen;
+    [SerializeField] private GameObject _menu;
+
+    private void Start()
+    {
+        if( _menu != null )
+        _menu.SetActive(false);
+    }
 
     public void OpenPanel(GameObject panel)
     {
@@ -34,5 +41,10 @@ public class Menu : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void ChooseLevel()
+    {
+        SceneManager.LoadScene("LevelsMap");
     }
 }
