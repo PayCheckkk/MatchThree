@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class FirstLevel : MonoBehaviour
 {
     [SerializeField] private GameObject _endScreen;
+    [SerializeField] private GameObject _gameScreen;
     [SerializeField] private TMP_Text _targetScoreText;
     [SerializeField] private ScoreCounter _currentScore;
     [SerializeField] private int _targetScore;
@@ -14,6 +16,7 @@ public class FirstLevel : MonoBehaviour
     private void Start()
     {
         _targetScoreText.text = $"Target: {_targetScore}";
+        _endScreen.SetActive(false);
     }
 
     private void Update()
@@ -26,13 +29,10 @@ public class FirstLevel : MonoBehaviour
         if (_currentScore.Score >= _targetScore)
         {
             if (Board.Instance.IsWorking == false)
-                FinishLevel();
+            { 
+                _endScreen.SetActive(true);
+                _gameScreen.SetActive(false);
+            }
         }
-    }
-
-    private void FinishLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        PlayerPrefs.SetInt("LevelComplete", SceneManager.GetActiveScene().buildIndex);
     }
 }
