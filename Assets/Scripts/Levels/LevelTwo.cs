@@ -12,44 +12,37 @@ public class LevelTwo : Levels
     private void Start()
     {
         Time.timeScale = 1;
-        EndScreen.SetActive(false);
+        _endScreen.SetActive(false);
     }
 
     private void Update()
     {
-        CurrentCountText.text = $"Poped: {_currentCount}";
+        _currentCountText.text = $"Poped: {_currentCount}";
 
         CompleteLevel();
     }
 
     private void OnEnable()
     {
-        Board.Poped += CalculateTarget;
+        _board.Poped += CalculateTarget;
     }
 
     private void OnDisable()
     {
-        Board.Poped -= CalculateTarget;
+        _board.Poped -= CalculateTarget;
     }
 
     private void CalculateTarget(Sprite target)
     {
-        if (target == TargetSprite)
+        if (target == _targetSprite)
             _currentCount++;
     }
 
     private void CompleteLevel()
     {
-        if (_currentCount == TargetCount)
+        if (_currentCount == _targetCount)
         {
-            FinishLevel();
+            _endScreen.SetActive(true);
         }
-    }
-
-    protected override void FinishLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        PlayerPrefs.SetInt("LevelComplete", SceneManager.GetActiveScene().buildIndex);
-        SceneManager.LoadScene("LevelsMap");
     }
 }
