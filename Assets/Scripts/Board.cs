@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -35,6 +36,7 @@ public class Board : MonoBehaviour
     public static Board Instance { get; private set; }
 
     public event UnityAction<Sprite> Poped;
+    public event UnityAction Swaped;
 
     private void Awake()
     {
@@ -98,6 +100,7 @@ public class Board : MonoBehaviour
         if (CanPop())
         {
             Pop(true);
+            Swaped?.Invoke();
         }
         else
         {

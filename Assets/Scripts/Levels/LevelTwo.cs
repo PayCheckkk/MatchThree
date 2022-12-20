@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelTwo : Levels
 {
-    private int _currentCount = 0;
+    private int _currentPopCount = 0;
 
     private void Start()
     {
@@ -17,7 +17,7 @@ public class LevelTwo : Levels
 
     private void Update()
     {
-        _currentCountText.text = $"Poped: {_currentCount}";
+        _currentPopCountText.text = $"Poped: {_currentPopCount}";
 
         CompleteLevel();
     }
@@ -35,14 +35,15 @@ public class LevelTwo : Levels
     private void CalculateTarget(Sprite target)
     {
         if (target == _targetSprite)
-            _currentCount++;
+            _currentPopCount++;
     }
 
-    private void CompleteLevel()
+    protected override void CompleteLevel()
     {
-        if (_currentCount == _targetCount)
+        if (_currentPopCount == _targetPopCount)
         {
             _endScreen.SetActive(true);
+            _gameScreen.SetActive(false);
         }
     }
 }
