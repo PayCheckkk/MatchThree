@@ -17,6 +17,6 @@ public class Target : MonoBehaviour
 
     private void Start()
     {
-        _targetText.text = $"Target: {_level.TargetCount} x";
+        _targetText.text = $"Targets: {_level.TargetPopCount} x      / {_level.SecondTargetPopCount} x";
     }
 }

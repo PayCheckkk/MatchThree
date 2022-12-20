@@ -12,8 +12,10 @@ public abstract class Levels : MonoBehaviour
     [SerializeField] protected TMP_Text _currentPopCountText;
     [SerializeField] protected Board _board;
     [SerializeField] protected int _targetPopCount;
+    [SerializeField] protected int _secondTargetPopCount;
 
-    public int TargetCount => _targetPopCount;
+    public int TargetPopCount => _targetPopCount;
+    public int SecondTargetPopCount => _secondTargetPopCount;
 
     protected abstract void CompleteLevel();
 }
