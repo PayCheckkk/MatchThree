@@ -5029,11 +5029,11 @@ MonoBehaviour:
   _targetSprite: {fileID: 5528609633622603068, guid: 2c97df9695607b04c92ec362851a0890, type: 3}
   _endScreen: {fileID: 833702191}
   _gameScreen: {fileID: 1317772447}
-  _currentPopCountText: {fileID: 0}
+  _currentPopCountText: {fileID: 637329195}
   _board: {fileID: 1830189581}
-  _targetPopCount: 0
+  _targetPopCount: 10
   _swapCountText: {fileID: 23662480}
-  _maxSwapCount: 1
+  _maxSwapCount: 5
   _loseLevelScreen: {fileID: 131631756}
 --- !u!1 &1387299928
 GameObject:

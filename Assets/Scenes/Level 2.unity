@@ -1818,7 +1818,7 @@ GameObject:
   - component: {fileID: 637329196}
   - component: {fileID: 637329195}
   m_Layer: 5
-  m_Name: CurrentCount
+  m_Name: CurrentPopCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4030,9 +4030,9 @@ MonoBehaviour:
   _targetSprite: {fileID: 7086606104257924489, guid: 34f6321b206afab459fb7c8d37989456, type: 3}
   _endScreen: {fileID: 833702191}
   _gameScreen: {fileID: 1317772447}
-  _currentCountText: {fileID: 637329195}
+  _currentPopCountText: {fileID: 637329195}
   _board: {fileID: 1830189581}
-  _targetCount: 12
+  _targetPopCount: 5
 --- !u!1 &1387299928
 GameObject:
   m_ObjectHideFlags: 0

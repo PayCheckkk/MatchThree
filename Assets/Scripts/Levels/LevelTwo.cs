@@ -46,9 +46,4 @@ public class LevelTwo : Levels
             _gameScreen.SetActive(false);
         }
     }
-
-    protected override void LoseLevel()
-    {
-        throw new System.NotImplementedException();
-    }
 }

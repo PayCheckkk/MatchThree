@@ -63,7 +63,7 @@ public class LevelThree : Levels
         _swapCount++;
     }
 
-    protected override void LoseLevel()
+    private void LoseLevel()
     {
         if (_swapCount >= _maxSwapCount)
         { 

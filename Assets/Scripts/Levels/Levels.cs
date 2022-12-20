@@ -15,7 +15,5 @@ public abstract class Levels : MonoBehaviour
 
     public int TargetCount => _targetPopCount;
 
-    protected abstract void LoseLevel();
-
     protected abstract void CompleteLevel();
 }
