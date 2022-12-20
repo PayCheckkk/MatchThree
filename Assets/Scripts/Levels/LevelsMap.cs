@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LevelsController : MonoBehaviour
+public class LevelsMap : MonoBehaviour
 {
     [SerializeField] private Button _secondLevelButton;
     [SerializeField] private Button _thirdLevelButton;
@@ -37,6 +37,6 @@ public class LevelsController : MonoBehaviour
     {
         _secondLevelButton.interactable = false;
         _thirdLevelButton.interactable = false;
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.DeleteKey("LevelComplete");
     }
 }

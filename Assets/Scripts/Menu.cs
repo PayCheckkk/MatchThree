@@ -33,8 +33,6 @@ public class Menu : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        _startScreen.alpha = 0;
-        _startScreen.blocksRaycasts = false;
         _gameScreen.alpha = 1;
     }
 
