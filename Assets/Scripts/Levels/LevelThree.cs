@@ -25,7 +25,7 @@ public class LevelThree : Levels
     private void Update()
     {
         _currentPopCountText.text = $"Poped: {_currentCount}";
-        _swapCountText.SetText($"Pop count: {_swapCount}");
+        _swapCountText.SetText($"Swap count: {_swapCount}");
 
         CompleteLevel();
         LoseLevel();
