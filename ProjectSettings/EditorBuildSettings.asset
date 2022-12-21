@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelsMap.unity
     guid: 8a7f3f3365638e64fb9f0f20226c8aba
+  - enabled: 1
+    path: Assets/Scenes/HardcoreLevelsMap.unity
+    guid: 94a3bc8c4e526ca4d82c33746b9d3698
+  - enabled: 1
+    path: Assets/Scenes/HardcoreLevel 1.unity
+    guid: 4462e68a3d9c5c14887b7614e7d940a4
   m_configObjects: {}

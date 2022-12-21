@@ -293,8 +293,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 291.52, y: -457}
-  m_SizeDelta: {x: 526.16, y: 87.05}
+  m_AnchoredPosition: {x: 339.49, y: -457}
+  m_SizeDelta: {x: 622.09, y: 87.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &23662480
 MonoBehaviour:
@@ -2142,7 +2142,6 @@ GameObject:
   - component: {fileID: 391404128}
   - component: {fileID: 391404131}
   - component: {fileID: 391404130}
-  - component: {fileID: 391404132}
   m_Layer: 5
   m_Name: Target
   m_TagString: Untagged
@@ -2269,20 +2268,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 391404127}
   m_CullTransparentMesh: 1
---- !u!114 &391404132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 391404127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6abbc56245d710447b6e23a89ab5aafc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetText: {fileID: 391404130}
-  _level: {fileID: 1317772450}
 --- !u!1 &470574212
 GameObject:
   m_ObjectHideFlags: 0
@@ -5104,17 +5089,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a3e4800f95abfb488c27333ee7a39df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetSprite: {fileID: -8166966530815011495, guid: 34f6321b206afab459fb7c8d37989456, type: 3}
   _endScreen: {fileID: 833702191}
   _gameScreen: {fileID: 1317772447}
+  _loseLevelScreen: {fileID: 131631756}
+  _targetSprite: {fileID: -8166966530815011495, guid: 34f6321b206afab459fb7c8d37989456, type: 3}
+  _secondTargetSprite: {fileID: -7105913188517789750, guid: 34f6321b206afab459fb7c8d37989456, type: 3}
   _currentPopCountText: {fileID: 637329195}
+  _targetText: {fileID: 391404130}
+  _swapCountText: {fileID: 23662480}
+  _secondCurrentPopCountText: {fileID: 1419919044}
   _board: {fileID: 1830189581}
   _targetPopCount: 12
   _secondTargetPopCount: 12
-  _loseLevelScreen: {fileID: 131631756}
-  _secondTargetSprite: {fileID: -7105913188517789750, guid: 34f6321b206afab459fb7c8d37989456, type: 3}
-  _swapCountText: {fileID: 23662480}
-  _secondCurrentPopCountText: {fileID: 1419919044}
   _maxSwapCount: 12
 --- !u!1 &1387299928
 GameObject:

@@ -631,10 +631,10 @@ RectTransform:
   m_Father: {fileID: 1738535422}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.089, y: 0.44062495}
-  m_AnchorMax: {x: 0.291, y: 0.55683345}
-  m_AnchoredPosition: {x: -1.829895, y: 2.3200073}
-  m_SizeDelta: {x: 1.6600494, y: -1}
+  m_AnchorMin: {x: 0.089, y: 0.609}
+  m_AnchorMax: {x: 0.291, y: 0.72400004}
+  m_AnchoredPosition: {x: -1.829895, y: -319.68}
+  m_SizeDelta: {x: 1.6600494, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &234453120
 MonoBehaviour:
@@ -680,7 +680,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1738535425}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
         m_MethodName: LoadTo
         m_Mode: 3
@@ -910,7 +910,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1738535425}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
         m_MethodName: LoadTo
         m_Mode: 3
@@ -1215,7 +1215,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1738535425}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
         m_MethodName: LoadTo
         m_Mode: 3
@@ -1505,7 +1505,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1738535425}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
         m_MethodName: Reset
         m_Mode: 1
@@ -1588,10 +1588,10 @@ RectTransform:
   m_Father: {fileID: 1738535422}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.076000005, y: 0.82918763}
-  m_AnchorMax: {x: 0.92425925, y: 0.91}
-  m_AnchoredPosition: {x: 1.8600159, y: -2.638794}
-  m_SizeDelta: {x: 3.1621704, y: 1.2774658}
+  m_AnchorMin: {x: 0.101888895, y: 0.82918763}
+  m_AnchorMax: {x: 0.9482963, y: 0.9088751}
+  m_AnchoredPosition: {x: 3, y: -1.5}
+  m_SizeDelta: {x: 5.1621704, y: 3.2774658}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1405639282
 MonoBehaviour:
@@ -1756,12 +1756,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1738535421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2b8dd10d3ec6f842be842e854429629, type: 3}
+  m_Script: {fileID: 11500000, guid: 27dc65d3c23afaa4e8ec5a369d89843f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _secondLevelButton: {fileID: 358564091}
-  _thirdLevelButton: {fileID: 862552212}
-  _fourthLevelButton: {fileID: 234453120}
 --- !u!1 &2003507405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1984,7 +1981,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1738535425}
-        m_TargetAssemblyTypeName: LevelController, Assembly-CSharp
+        m_TargetAssemblyTypeName: HardcoreLevelsMap, Assembly-CSharp
         m_MethodName: LoadTo
         m_Mode: 3
         m_Arguments:

@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelTwo : Levels
 {
-    private int _currentPopCount = 0;
-
     private void Start()
     {
         Time.timeScale = 1;

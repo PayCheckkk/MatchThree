@@ -47,20 +47,7 @@ public class Board : MonoBehaviour
     {
         Tiles = new Tile[_rows.Max(row => row.Tiles.Length), _rows.Length];
 
-        for (var rowIterator = 0; rowIterator < _height; rowIterator++)
-        {
-            for (var tileIterator = 0; tileIterator < _width; tileIterator++)
-            {
-                var tile = _rows[rowIterator].Tiles[tileIterator];
-
-                tile.SetX(tileIterator);
-                tile.SetY(rowIterator);
-
-                tile.Item = ItemDatabase.Items[Random.Range(0, ItemDatabase.Items.Length)];
-
-                Tiles[tileIterator, rowIterator] = tile;
-            }
-        }
+        FillBoard();
 
         while (CanPop())
             Pop(false);
@@ -139,6 +126,24 @@ public class Board : MonoBehaviour
         tile2.Item = tile1Item;
 
         _isWorking = false;
+    }
+
+    private void FillBoard()
+    {
+        for (var rowIterator = 0; rowIterator < _height; rowIterator++)
+        {
+            for (var tileIterator = 0; tileIterator < _width; tileIterator++)
+            {
+                var tile = _rows[rowIterator].Tiles[tileIterator];
+
+                tile.SetX(tileIterator);
+                tile.SetY(rowIterator);
+
+                tile.Item = ItemDatabase.Items[Random.Range(0, ItemDatabase.Items.Length)];
+
+                Tiles[tileIterator, rowIterator] = tile;
+            }
+        }
     }
 
     private bool CanPop()

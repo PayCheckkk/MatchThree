@@ -5,19 +5,6 @@ using UnityEngine;
 
 public class LevelFour : Levels
 {
-    [SerializeField] private GameObject _loseLevelScreen;
-
-    [SerializeField] protected Sprite _secondTargetSprite;
-
-    [SerializeField] private TMP_Text _swapCountText;
-    [SerializeField] protected TMP_Text _secondCurrentPopCountText;
-
-    [SerializeField] private int _maxSwapCount;
-
-    private int _currentPopCount = 0;
-    private int _secondCurrentPopCount = 0;
-    private int _swapCount = 0;
-
     private void Start()
     {
         Time.timeScale = 1;
@@ -26,16 +13,17 @@ public class LevelFour : Levels
         _loseLevelScreen.SetActive(false);
 
         _swapCountText.SetText($"Pop count: {_swapCount}");
+        _targetText.text = $"Targets: {_targetPopCount} x      / {_secondTargetPopCount} x";
     }
 
     private void Update()
     {
-        _currentPopCountText.text = $"Poped: {_currentPopCount}";
-        _secondCurrentPopCountText.text = $"Second poped: {_secondCurrentPopCount}";
+        _currentPopCountText.text = $"Poped: {_currentPopCount}  /  {_secondCurrentPopCount}";
 
-        _swapCountText.SetText($"Swap count: {_swapCount}");
+        _swapCountText.SetText($"Swap count: {_swapCount} / {_maxSwapCount}");
 
         CompleteLevel();
+
         LoseLevel();
     }
 

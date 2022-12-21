@@ -5,13 +5,6 @@ using UnityEngine;
 
 public class LevelThree : Levels
 {
-    [SerializeField] private TMP_Text _swapCountText;
-    [SerializeField] private int _maxSwapCount;
-    [SerializeField] private GameObject _loseLevelScreen;
-
-    private int _currentCount = 0;
-    private int _swapCount = 0;
-
     private void Start()
     {
         Time.timeScale = 1;
@@ -20,12 +13,13 @@ public class LevelThree : Levels
         _loseLevelScreen.SetActive(false);
 
         _swapCountText.SetText($"Pop count: {_swapCount}");
+        _targetText.text = $"Target: {_targetPopCount} x";
     }
 
     private void Update()
     {
-        _currentPopCountText.text = $"Poped: {_currentCount}";
-        _swapCountText.SetText($"Swap count: {_swapCount}");
+        _currentPopCountText.text = $"Poped: {_currentPopCount}";
+        _swapCountText.SetText($"Swap count: {_swapCount}   / {_maxSwapCount}");
 
         CompleteLevel();
         LoseLevel();
@@ -46,12 +40,12 @@ public class LevelThree : Levels
     private void CalculateTarget(Sprite target)
     {
         if (target == _targetSprite)
-            _currentCount++;
+            _currentPopCount++;
     }
 
     protected override void CompleteLevel()
     {
-        if (_currentCount == _targetPopCount)
+        if (_currentPopCount == _targetPopCount)
         {
             _gameScreen.SetActive(false);
             _endScreen.SetActive(true);

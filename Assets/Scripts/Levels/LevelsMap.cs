@@ -8,13 +8,17 @@ public class LevelsMap : MonoBehaviour
 {
     [SerializeField] private Button _secondLevelButton;
     [SerializeField] private Button _thirdLevelButton;
+    [SerializeField] private Button _fourthLevelButton;
+
     private int _levelComplete;
 
     private void Start()
     {
         _levelComplete = PlayerPrefs.GetInt("LevelComplete");
+
         _secondLevelButton.interactable = false;
         _thirdLevelButton.interactable = false;
+        _fourthLevelButton.interactable = false;
 
         switch (_levelComplete)
         {
@@ -24,6 +28,11 @@ public class LevelsMap : MonoBehaviour
             case 2:
                 _secondLevelButton.interactable = true;
                 _thirdLevelButton.interactable = true;
+                break;
+            case 3:
+                _secondLevelButton.interactable = true;
+                _thirdLevelButton.interactable = true;
+                _fourthLevelButton.interactable = true;
                 break;
         }
     }
@@ -37,6 +46,7 @@ public class LevelsMap : MonoBehaviour
     {
         _secondLevelButton.interactable = false;
         _thirdLevelButton.interactable = false;
+        _fourthLevelButton.interactable = false;
         PlayerPrefs.DeleteKey("LevelComplete");
     }
 }
