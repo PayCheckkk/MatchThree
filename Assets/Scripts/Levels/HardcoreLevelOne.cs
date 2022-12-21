@@ -30,7 +30,7 @@ public class HardcoreLevelOne : Levels
     {
         _currentPopCountText.text = $"Poped: {_currentPopCount}  /  {_secondCurrentPopCount}";
 
-        _swapCountText.SetText($"Swap count: {_swapCount} / {_maxSwapCount}");
+        _swapCountText.SetText($"Swaped: {_swapCount} / {_maxSwapCount}");
 
         CompleteLevel();
 
