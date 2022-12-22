@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class LevelsMap : MonoBehaviour
 {
+    [SerializeField] private Button[] _levelButtons;
     [SerializeField] private Button _secondLevelButton;
     [SerializeField] private Button _thirdLevelButton;
     [SerializeField] private Button _fourthLevelButton;
@@ -16,23 +17,36 @@ public class LevelsMap : MonoBehaviour
     {
         _levelComplete = PlayerPrefs.GetInt("LevelComplete");
 
-        _secondLevelButton.interactable = false;
-        _thirdLevelButton.interactable = false;
-        _fourthLevelButton.interactable = false;
+        for (int buttonIterator = 0; buttonIterator < _levelButtons.Length; buttonIterator++)
+        {
+            _levelButtons[buttonIterator].interactable = false;
+        }
 
         switch (_levelComplete)
         {
             case 1:
-                _secondLevelButton.interactable = true;
+                ChangeButtonInteractable(_levelComplete);
                 break;
             case 2:
-                _secondLevelButton.interactable = true;
-                _thirdLevelButton.interactable = true;
+                ChangeButtonInteractable(_levelComplete);
                 break;
             case 3:
-                _secondLevelButton.interactable = true;
-                _thirdLevelButton.interactable = true;
-                _fourthLevelButton.interactable = true;
+                ChangeButtonInteractable(_levelComplete);
+                break;
+            case 4:
+                ChangeButtonInteractable(_levelComplete);
+                break;            
+            case 5:
+                ChangeButtonInteractable(_levelComplete);
+                break;            
+            case 6:
+                ChangeButtonInteractable(_levelComplete);
+                break;
+            case 7:
+                ChangeButtonInteractable(_levelComplete);
+                break;
+            case 8:
+                ChangeButtonInteractable(_levelComplete);
                 break;
         }
     }
@@ -44,9 +58,24 @@ public class LevelsMap : MonoBehaviour
 
     public void Reset()
     {
-        _secondLevelButton.interactable = false;
-        _thirdLevelButton.interactable = false;
-        _fourthLevelButton.interactable = false;
+        for (int buttonIterator = 0; buttonIterator < _levelButtons.Length; buttonIterator++)
+        {
+            _levelButtons[buttonIterator].interactable = false;
+        }
+
         PlayerPrefs.DeleteKey("LevelComplete");
+    }
+
+    public void LoadHardcoreLevelsMap()
+    {
+        SceneManager.LoadScene("HardcoreLevelsMap");
+    }
+
+    private void ChangeButtonInteractable(int buttonCount)
+    {
+        for(int buttonIterator = 0; buttonIterator < buttonCount; buttonIterator++)
+        {
+            _levelButtons[buttonIterator].interactable = true;
+        }
     }
 }

@@ -10,7 +10,10 @@ public class LevelTwo : Levels
     private void Start()
     {
         Time.timeScale = 1;
+
         _endScreen.SetActive(false);
+
+        _targetText.text = $"Target: {_targetPopCount} x ";
     }
 
     private void Update()

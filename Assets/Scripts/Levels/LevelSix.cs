@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class LevelThree : Levels
+public class LevelSix : Levels
 {
     private void Start()
     {
@@ -14,14 +14,17 @@ public class LevelThree : Levels
 
         _swapCountText.SetText($"Pop count: {_swapCount}");
         _targetText.text = $"Target: {_targetPopCount} x";
+        _secondTargetText.text = $"Target: {_secondTargetPopCount} x";
     }
 
     private void Update()
     {
-        _currentPopCountText.text = $"Poped: {_currentPopCount}";
-        _swapCountText.SetText($"Swap count: {_swapCount}   / {_maxSwapCount}");
+        _currentPopCountText.text = $"Poped: {_currentPopCount}  /  {_secondCurrentPopCount}";
+
+        _swapCountText.SetText($"Swaped: {_swapCount} / {_maxSwapCount}");
 
         CompleteLevel();
+
         LoseLevel();
     }
 
@@ -41,11 +44,14 @@ public class LevelThree : Levels
     {
         if (target == _targetSprite)
             _currentPopCount++;
+        
+        if (target == _secondTargetSprite)
+            _secondCurrentPopCount++;
     }
 
     protected override void CompleteLevel()
     {
-        if (_currentPopCount == _targetPopCount)
+        if (_currentPopCount >= _targetPopCount && _secondCurrentPopCount >= _secondTargetPopCount)
         {
             _gameScreen.SetActive(false);
             _endScreen.SetActive(true);

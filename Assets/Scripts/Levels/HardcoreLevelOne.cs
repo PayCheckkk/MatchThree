@@ -21,6 +21,12 @@ public class HardcoreLevelOne : Levels
 
         GanerateNewTargets();
 
+        if (_targetPopCount == 0 || _secondTargetPopCount == 0)
+        {
+            SetTargetsRandomNumber(ref _targetPopCount);
+            SetTargetsRandomNumber(ref _secondTargetPopCount);
+        }
+
         FixTargetText();
 
         _swapCountText.SetText($"Pop count: {_swapCount}");
@@ -93,9 +99,11 @@ public class HardcoreLevelOne : Levels
         {
             _currentPopCount = 0;
             _secondCurrentPopCount = 0;
-            _targetPopCount++;
-            _secondTargetPopCount++;
             _levelsCompleted++;
+
+            SetTargetsRandomNumber(ref _targetPopCount);
+            SetTargetsRandomNumber(ref _secondTargetPopCount);
+
             GanerateNewTargets();
         }
     }
@@ -103,6 +111,13 @@ public class HardcoreLevelOne : Levels
     private void CalculateSwap()
     {
         _swapCount++;
+    }
+
+    private void SetTargetsRandomNumber(ref int targetCount)
+    {
+        int lowerBoundary = 7;
+        int upperBoundary = 16;
+        targetCount = Random.Range(lowerBoundary, upperBoundary);
     }
 
     private void FinishLevel()
