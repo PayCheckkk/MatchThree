@@ -6,10 +6,12 @@ using UnityEngine.UI;
 [RequireComponent(typeof (RawImage))]
 public class Parallax : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [SerializeField] private float _xSpeed;
+    [SerializeField] private float _ySpeed;
 
     private RawImage _image;
     private float _imagePositionX;
+    private float _imagePositionY;
 
     private void Start()
     {
@@ -18,8 +20,9 @@ public class Parallax : MonoBehaviour
 
     private void Update()
     {
-        _imagePositionX += _speed * Time.deltaTime;
+        _imagePositionX += _xSpeed * Time.deltaTime;
+        _imagePositionY += _ySpeed * Time.deltaTime;
 
-        _image.uvRect = new Rect(_imagePositionX, 0, _image.uvRect.width, _image.uvRect.height);
+        _image.uvRect = new Rect(_imagePositionX, _imagePositionY, _image.uvRect.width, _image.uvRect.height);    
     }
 }

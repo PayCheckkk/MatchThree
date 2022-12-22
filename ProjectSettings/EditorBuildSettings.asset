@@ -16,8 +16,41 @@ EditorBuildSettings:
     guid: 2b4f3e0b1f48fc647938bf4cce56eefa
   - enabled: 1
     path: Assets/Scenes/Level 3.unity
+    guid: ce8fc8a90f18e724294ac82909a7b0ad
+  - enabled: 1
+    path: Assets/Scenes/Level 4.unity
     guid: 288138a845bef3144890991c4f4b649a
+  - enabled: 1
+    path: Assets/Scenes/Level 5.unity
+    guid: 5c96af85908edbc4abebf80ee094c30d
+  - enabled: 1
+    path: Assets/Scenes/Level 6.unity
+    guid: cb8d7daab3f8c8b4e96b4efd89a16864
+  - enabled: 1
+    path: Assets/Scenes/Level 7.unity
+    guid: 3efdc2f2b65b72e46a7523dc6e6c8f3d
+  - enabled: 1
+    path: Assets/Scenes/Level 8.unity
+    guid: 58f8781ac8bbbd1469d317f0458bcb4a
+  - enabled: 1
+    path: Assets/Scenes/Level 9.unity
+    guid: fca8d8dbfc1148a4c861523b5c738e65
   - enabled: 1
     path: Assets/Scenes/LevelsMap.unity
     guid: 8a7f3f3365638e64fb9f0f20226c8aba
+  - enabled: 1
+    path: Assets/Scenes/HardcoreLevelsMap.unity
+    guid: 94a3bc8c4e526ca4d82c33746b9d3698
+  - enabled: 1
+    path: Assets/Scenes/HardcoreLevel 1.unity
+    guid: 4462e68a3d9c5c14887b7614e7d940a4
+  - enabled: 1
+    path: Assets/Scenes/HardcoreLevel 2.unity
+    guid: 7f3f12a1168f58d4780e0c21c374ace7
+  - enabled: 1
+    path: Assets/Scenes/HardcoreLevel 4.unity
+    guid: 896f16a073cd2e74293fbc7a5d553bb8
+  - enabled: 1
+    path: Assets/Scenes/HardcoreLevel 3.unity
+    guid: aaedd24e04fcd1448938438a72d0ed7a
   m_configObjects: {}
