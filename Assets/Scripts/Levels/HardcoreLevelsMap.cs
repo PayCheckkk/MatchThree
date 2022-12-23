@@ -9,4 +9,9 @@ public class HardcoreLevelsMap : MonoBehaviour
     {
         SceneManager.LoadScene($"HardcoreLevel {levelNumber}");
     }
+
+    public void BackToDefaultLevels()
+    {
+        SceneManager.LoadScene("LevelsMap");
+    }
 }
