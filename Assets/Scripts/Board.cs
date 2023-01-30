@@ -13,6 +13,8 @@ using UnityEngine.UI;
 public class Board : MonoBehaviour
 {
     [SerializeField] private Row[] _rows;
+    [SerializeField] private AudioSource _failSwapAudio;
+    [SerializeField] private AudioSource _succesSwapAudio;
 
     private const float TweenDuration = 0.12f;
     private const int SelectionsToTriggerSwap = 2;
@@ -91,6 +93,7 @@ public class Board : MonoBehaviour
         }
         else
         {
+            _failSwapAudio.Play();
             await Swap(_selection[0], _selection[1]);
         }
 
@@ -184,7 +187,11 @@ public class Board : MonoBehaviour
 
                     await deflateSequence.Play().AsyncWaitForCompletion();
 
+                    _succesSwapAudio.Play();
+
                     Poped?.Invoke(tile.Icon.sprite);
+
+                    ParticleBlast.Instance.Blast(tile);
 
                     ScoreCounter.Instance.Score += tile.Item.Value * connectedTiles.Count;
                 }

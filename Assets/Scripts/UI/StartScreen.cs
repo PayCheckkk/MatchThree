@@ -5,15 +5,14 @@ using UnityEngine.UI;
 
 public class StartScreen : MonoBehaviour
 {
-    [SerializeField] private CanvasGroup _startScreen;
-    [SerializeField] private CanvasGroup _gameScreen;
+    [SerializeField] private GameObject _startScreen;
+    [SerializeField] private GameObject _gameScreen;
     [SerializeField] private Button _startButton;
 
     private void Start()
     {
-        _startScreen.alpha = 1;
-        _startScreen.blocksRaycasts = true;
-        _gameScreen.alpha = 0;
+        _startScreen.SetActive(true);
+        _gameScreen.SetActive(false);
     }
 
     private void OnEnable()
@@ -28,9 +27,7 @@ public class StartScreen : MonoBehaviour
 
     private void OnStartButtonClick()
     {
-        _startScreen.alpha = 0;
-        _startScreen.blocksRaycasts = false;
-        _gameScreen.alpha = 1;
-        _startButton.interactable = false;
+        _startScreen.SetActive(false);
+        _gameScreen.SetActive(true);
     }
 }

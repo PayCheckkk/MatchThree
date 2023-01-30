@@ -10,7 +10,7 @@ public class HardcoreLevelOne : Levels
 
     private Sprite _firstTarget;
     private Sprite _secondTarget;
-    private int _levelsCompleted;
+    private int _levelsCompleted; // для счёта уровней потом реализовать
 
     private void Start()
     {

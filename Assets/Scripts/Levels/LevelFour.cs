@@ -19,7 +19,7 @@ public class LevelFour : Levels
     private void Update()
     {
         _currentPopCountText.text = $"Poped: {_currentPopCount}";
-        _swapCountText.SetText($"Swap count: {_swapCount}   / {_maxSwapCount}");
+        _swapCountText.SetText($"Swap count: {_swapCount}  / {_maxSwapCount}");
 
         CompleteLevel();
         LoseLevel();
